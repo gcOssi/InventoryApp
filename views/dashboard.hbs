@@ -1,0 +1,71 @@
+<!-- Stats Cards -->
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-header">
+            <div class="stat-icon products">📦</div>
+        </div>
+        <div class="stat-value">{{data.stats.totalProducts}}</div>
+        <div class="stat-label">Total Productos</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-header">
+            <div class="stat-icon low-stock">⚠️</div>
+        </div>
+        <div class="stat-value">{{data.stats.lowStockProducts}}</div>
+        <div class="stat-label">Stock Bajo</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-header">
+            <div class="stat-icon orders">📋</div>
+        </div>
+        <div class="stat-value">{{data.stats.todayOrders}}</div>
+        <div class="stat-label">Pedidos Hoy</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-header">
+            <div class="stat-icon revenue">💰</div>
+        </div>
+        <div class="stat-value">${{data.stats.monthlyRevenue}}</div>
+        <div class="stat-label">Ingresos Mes</div>
+    </div>
+</div>
+
+<!-- Products Table -->
+<div class="content-card">
+    <div class="card-header">
+        <h3 class="card-title">Productos Recientes</h3>
+        <button class="btn btn-primary">+ Agregar Producto</button>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>SKU</th>
+                    <th>Categoría</th>
+                    <th>Stock</th>
+                    <th>Precio</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each data.recentProducts}}
+                <tr>
+                    <td>{{this.name}}</td>
+                    <td>{{this.sku}}</td>
+                    <td>{{this.category}}</td>
+                    <td>{{this.stock}}</td>
+                    <td>${{this.price}}</td>
+                    <td>
+                        {{#if (this.isLowStock)}}
+                            <span class="status-badge low-stock">Stock Bajo</span>
+                        {{else}}
+                            <span class="status-badge in-stock">En Stock</span>
+                        {{/if}}
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

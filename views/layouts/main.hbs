@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}} - InventoryPro</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="logo">
+                <h1>📦 InventoryPro</h1>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/" class="nav-link {{#if isDashboard}}active{{/if}}">
+                        <span class="nav-icon">📊</span>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/products" class="nav-link {{#if isProducts}}active{{/if}}">
+                        <span class="nav-icon">📦</span>
+                        <span class="nav-text">Productos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/orders" class="nav-link {{#if isOrders}}active{{/if}}">
+                        <span class="nav-icon">🛒</span>
+                        <span class="nav-text">Pedidos</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <h2>{{title}}</h2>
+                <div class="search-bar">
+                    <input type="text" placeholder="Buscar...">
+                </div>
+                <div class="user-info">
+                    <div class="notifications">
+                        🔔
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="avatar">JD</div>
+                </div>
+            </header>
+
+            <!-- Content -->
+            {{{body}}}
+        </main>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
